@@ -1,0 +1,154 @@
+#const Key_Space 16
+#const Key_Return 32
+
+#deffunc UI_draw
+px = 100
+py = 100
+lbox_kosu = 3
+
+redraw 0
+color 255,255,255 : boxf : color 0,0,0
+stick key
+
+repeat select_max + 1
+pos px, py + (cnt*20)
+mes select(1,cnt) + " " + select(0,cnt)
+loop
+
+pos px-20, py + (pt*20)
+mes "→"
+
+if (key == 2) {
+  if (pt > 0) {
+    pt--
+  }
+}
+if (key == 8) {
+  if (pt < select_max) {
+    pt++
+  }
+}
+return
+
+*title1
+select_max = 3
+sdim select,64,select_max,3
+select(0,0) = "続きから","a"
+select(0,1) = "新しく","b"
+select(0,2) = "テスト","c"
+select(0,3) = "終了","d"
+//select = "a 続きから","b 新しく","c テスト"
+UI_draw
+if (key == Key_Space | key == Key_Return) {
+  if (pt == 1) {
+    screen 0,800,600
+    pt = 0
+    goto *chara_create
+  }
+  if (pt == 2) {
+    screen 0,800,600
+    pt = 0
+    goto *main
+  }
+  if (pt == 3) {
+    end
+  }
+}
+if (key == 128) {
+  end
+}
+await 10
+redraw 1
+goto *title1
+
+
+*chara_create
+select_max = 2
+sdim select,64,select_max,3
+//select = "a 男性","b 女性","c 性別無し"
+select(0,0) = "男性","a"
+select(0,1) = "女性","b"
+select(0,2) = "性別不明","c"
+UI_draw
+if (key == Key_Space | key == Key_Return) {
+  if (pt == 0) {
+    screen 0,800,600
+    sex = 0
+    pt = 0
+    goto *chara_create2
+  }
+  if (pt == 1) {
+    screen 0,800,600
+    sex = 1
+    pt = 0
+    goto *chara_create2
+  }
+  if (pt == 2) {
+    screen 0,800,600
+    sex = 2
+    pt = 0
+    goto *chara_create2
+  }
+}
+await 10
+redraw 1
+goto *chara_create
+
+*chara_create2
+select_max = 2
+sdim select,64,select_max,3
+//select = "a 人間","b エルフ","c ドワーフ"
+select(0,0) = "人間","a"
+select(0,1) = "エルフ","b"
+select(0,2) = "ドワーフ","c"
+UI_draw
+if (key == Key_Space | key == Key_Return) {
+  if (pt == 0) {
+    screen 0,800,600
+    Race = 0
+    pt = 0
+    goto *chara_create3
+  }
+  if (pt == 1) {
+    screen 0,800,600
+    Race = 1
+    pt = 0
+    goto *chara_create3
+  }
+  if (pt == 2) {
+    screen 0,800,600
+    Race = 2
+    pt = 0
+    goto *chara_create3
+  }
+}
+await 10
+redraw 1
+goto *chara_create2
+
+*chara_create3
+select_max = 2
+sdim select,64,select_max,3
+//select = "a 戦士","b 魔法使い","c 無職"
+select(0,0) = "戦士","a"
+select(0,1) = "魔法使い","b"
+select(0,2) = "無職","c"
+UI_draw
+if (key == Key_Space | key == Key_Return) {
+  if (pt == 0) {
+    screen 0,800,600
+    job = 0
+  }
+  if (pt == 1) {
+    screen 0,800,600
+    job = 1
+  }
+  if (pt == 2) {
+    screen 0,800,600
+    job = 2
+  }
+}
+
+  await 10
+  redraw 1
+  goto *chara_create3
