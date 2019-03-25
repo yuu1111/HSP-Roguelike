@@ -1,7 +1,5 @@
-#const Key_Space 16
-#const Key_Return 32
-
 #deffunc UI_draw
+
 px = 100
 py = 100
 lbox_kosu = 3
@@ -30,6 +28,7 @@ if (key == 8) {
 }
 return
 
+
 *title1
 select_max = 3
 sdim select,64,select_max,3
@@ -37,7 +36,6 @@ select(0,0) = "続きから","a"
 select(0,1) = "新しく","b"
 select(0,2) = "テスト","c"
 select(0,3) = "終了","d"
-//select = "a 続きから","b 新しく","c テスト"
 UI_draw
 if (key == Key_Space | key == Key_Return) {
   if (pt == 1) {
@@ -64,8 +62,7 @@ goto *title1
 
 *chara_create
 select_max = 2
-sdim select,64,select_max,3
-//select = "a 男性","b 女性","c 性別無し"
+//sdim select,64,select_max,3
 select(0,0) = "男性","a"
 select(0,1) = "女性","b"
 select(0,2) = "性別不明","c"
@@ -96,8 +93,7 @@ goto *chara_create
 
 *chara_create2
 select_max = 2
-sdim select,64,select_max,3
-//select = "a 人間","b エルフ","c ドワーフ"
+//sdim select,64,select_max,3
 select(0,0) = "人間","a"
 select(0,1) = "エルフ","b"
 select(0,2) = "ドワーフ","c"
@@ -128,8 +124,7 @@ goto *chara_create2
 
 *chara_create3
 select_max = 2
-sdim select,64,select_max,3
-//select = "a 戦士","b 魔法使い","c 無職"
+//sdim select,64,select_max,3
 select(0,0) = "戦士","a"
 select(0,1) = "魔法使い","b"
 select(0,2) = "無職","c"

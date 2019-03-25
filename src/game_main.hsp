@@ -1,0 +1,54 @@
+#include "src/draw.hsp"
+#include "src/UI.hsp"
+#include "src/title.hsp"
+#include "src/img_load.hsp"
+#include "src/map.hsp"
+#include "src/debug.hsp"
+#include "src/Save.hsp"
+
+
+// *** キャラクターを移動させる **************************************
+#deffunc move int direction
+if (direction == 0) {
+  x@chara - 48
+}
+if (direction == 1) {
+  y@chara - 48
+}
+if (direction == 2) {
+  x@chara + 48
+}
+if (direction == 3) {
+  y@chara + 48
+}
+return
+
+
+*main
+wait 10
+map_draw
+chara_draw
+getkey left, 37
+getkey up, 38
+getkey right, 39
+getkey down, 40
+if (left == 0 & up == 0 & right == 0 & down == 0) {
+  goto *main
+}
+if (left == 1) {
+  debug_log("左")
+  move(0)
+}
+if (up == 1) {
+  debug_log("上")
+  move(1)
+}
+if (right == 1) {
+  debug_log("右")
+  move(2)
+}
+if (down == 1) {
+  debug_log("下")
+  move(3)
+}
+goto *main

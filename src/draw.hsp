@@ -9,19 +9,17 @@
 			if map(mx, my) = 0 {
 				pos mx*48, my*48
 				gcopy 1, 0,0, 48,48
-        gsel 0
 			}
 			// マップデータが1の場合壁を描写
 			if map(mx, my) = 1 {
 				pos mx*48, my*48
 				gcopy 1, 48,0, 48,48
-        gsel 0
 			}
       if map(mx, my) = 2 {
         pos mx*48, my*48
         gcopy 1, 96,0, 48,48
-        gsel 0
       }
+			gsel 0
 			mx += 1
 		loop
 		my += 1 : mx = 0

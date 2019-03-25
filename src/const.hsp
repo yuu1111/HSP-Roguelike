@@ -1,0 +1,6 @@
+#const mapsizex 12
+#const mapsizey 10
+#const debug_flag 1
+#const mapdebug_flag 1
+#const Key_Space 16
+#const Key_Return 32
