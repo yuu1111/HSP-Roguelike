@@ -9,30 +9,30 @@ if strsize = -1 {
 exist "../Save/Save.json"
 mes "ファイル確認（"+strsize+" バイト）"
 
-	notesel JsonData
-	noteload "../Save/Save.json"
+notesel JsonData
+noteload "../Save/Save.json"
 
-	//文字列からJsonオブジェクト生成
-	jsonopen JsonPtr,JsonData
+//文字列からJsonオブジェクト生成
+jsonopen JsonPtr,JsonData
 
-	jsongetobj JsonPtr,"Data",JsonPtr
+jsongetobj JsonPtr,"Data",JsonPtr
 
-	jsongeti Save_Sex,"Sex",JsonPtr
-	jsongets Save_Race,"Race",JsonPtr
-  jsongets Save_Job,"Job",JsonPtr
-	mes strf("Value:%d,str%s",Value,String)
+jsongeti Save_Sex,"Sex",JsonPtr
+jsongets Save_Race,"Race",JsonPtr
+jsongets Save_Job,"Job",JsonPtr
+mes strf("Value:%d,str%s",Value,String)
 
 
-	jsongetobj InfoPtr,"info",JsonPtr
+jsongetobj InfoPtr,"info",JsonPtr
 
-	jsonnext InfoPtr,InfoPtr,2
-	while(InfoPtr!=NULL)
-		jsongeti ID,"id",InfoPtr
-		jsongets Name,"name",InfoPtr
-		mes strf("ID:%d 名前:%s",ID,Name)
-                //Nextが存在しないとInfoにNULLが返る
-		jsonnext InfoPtr,InfoPtr,0
-	wend
+jsonnext InfoPtr,InfoPtr,2
+while(InfoPtr!=NULL)
+jsongeti ID,"id",InfoPtr
+jsongets Name,"name",InfoPtr
+mes strf("ID:%d 名前:%s",ID,Name)
+//Nextが存在しないとInfoにNULLが返る
+jsonnext InfoPtr,InfoPtr,0
+wend
 
-	//JSONオブジェクト開放
-	jsonclose
+//JSONオブジェクト開放
+jsonclose

@@ -1,12 +1,12 @@
 #deffunc map_chip
 if (mapdebug_flag == 0) {
   buffer 1
-} else {
-  gsel 1
-}
-pos 0,0
-picload "Data/map.png",1
-if (mapdebug_flag) {
-gsel 0
-}
-return
+  } else {
+    gsel 1
+  }
+  pos 0,0
+  picload "Data/map.png",1
+  if (mapdebug_flag) {
+    gsel 0
+  }
+  return

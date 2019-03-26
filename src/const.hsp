@@ -2,7 +2,13 @@
 #const mapsizey 10
 #const debug_flag 1
 #const mapdebug_flag 1
-#const Key_Space 16
-#const Key_Return 32
 
-px = 48
+//ƒL[‚Ì”š
+#const Key_Return 13
+#const Key_Shift 16
+#const Key_ESC 27
+#const Key_Space 32
+#const Key_Left 37
+#const Key_UP 38
+#const Key_Right 39
+#const Key_Down 40

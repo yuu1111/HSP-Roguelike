@@ -1,0 +1,6 @@
+#define ctype cX cdata(0)
+#define ctype cY cdata(1)
+
+
+#define ctype uPX udata(0)
+#define ctype uPY udata(1)

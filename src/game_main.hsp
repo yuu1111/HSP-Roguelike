@@ -1,54 +1,54 @@
-#include "src/Draw.hsp"
-#include "src/UI.hsp"
-#include "src/Title.hsp"
-#include "src/Img_Load.hsp"
-#include "src/Map.hsp"
-#include "src/Debug.hsp"
-#include "src/Save.hsp"
+#include "Draw.hsp"
+#include "UI.hsp"
+#include "Img_Load.hsp"
+#include "Map.hsp"
+#include "Debug.hsp"
+#include "Save.hsp"
 
 
 // *** キャラクターを移動させる **************************************
 #deffunc move int direction
 if (direction == 0) {
-  cdata(0) - 48
+  cX() - 48
 }
 if (direction == 1) {
-  cdata(1) - 48
+  cY() - 48
 }
 if (direction == 2) {
-  cdata(0) + 48
+  cX() + 48
 }
 if (direction == 3) {
-  cdata(1) + 48
+  cY() + 48
 }
 return
 
 
-*main
+*Game_Main
 wait 10
 map_draw
 chara_draw
-getkey left, 37
-getkey up, 38
-getkey right, 39
-getkey down, 40
-if (left == 0 & up == 0 & right == 0 & down == 0) {
-  goto *main
+getkey Get_Left, Key_Left
+getkey Get_UP, Key_UP
+getkey Get_Right, Key_Right
+getkey Get_Down, Key_Down
+
+if (Get_Left == 0 & Get_UP == 0 & Get_Right == 0 & Get_Down == 0) {
+  goto *Game_Main
 }
-if (left == 1) {
+if (Get_Left == 1) {
   debug_log("左")
   move(0)
 }
-if (up == 1) {
+if (Get_UP == 1) {
   debug_log("上")
   move(1)
 }
-if (right == 1) {
+if (Get_Right == 1) {
   debug_log("右")
   move(2)
 }
-if (down == 1) {
+if (Get_Down == 1) {
   debug_log("下")
   move(3)
 }
-goto *main
+goto *Game_Main

@@ -1,20 +1,21 @@
 
-#include "src/const.hsp"
+#include "src/Const.hsp"
+#include "src/Macro.hsp"
 
 version = " 0.001α"
-releaseday = " 20190322"
+releaseday = " 20190326"
 
 dim cdata, 500, 245
-cdata(0) = 0
-cdata(1) = 0
+dim udata, 500, 245
 
-originX = 0
-originY = 0
-pt = 0
+cX() = 0
+cY() = 0
+
+cursor = 0
 
 if (mapdebug_flag) {
-screen 1, 800 , 600
-title "マップチップ"
+  screen 1, 800 , 600
+  title "マップチップ"
 }
 if (debug_flag) {
   screen 2, 800 , 600
@@ -27,6 +28,6 @@ title "TestGame" + releaseday + version
 randomize
 map_chip
 map_create
-goto *title1
+goto *Title@1
 
 #include "src/game_main.hsp"
