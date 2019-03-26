@@ -1,28 +1,28 @@
 #deffunc map_draw
 // マップを描写
-	mx = 0	// X座標を保持するための変数
-	my = 0	// Y座標を保持するための変数
+	x@map = 0	// X座標を保持するための変数
+	y@map = 0	// Y座標を保持するための変数
   gsel 0
 	repeat length(map)
 		repeat length2(map)
 			// マップデータが0の場合地面を描写
-			if map(mx, my) = 0 {
-				pos mx*48, my*48
-				gcopy 1, 0,0, 48,48
+			if map(x@map, y@map) = 0 {
+				pos x@map*48, y@map*48
+				gcopy 1, 0, 0, 48, 48
 			}
 			// マップデータが1の場合壁を描写
-			if map(mx, my) = 1 {
-				pos mx*48, my*48
-				gcopy 1, 48,0, 48,48
+			if map(x@map, y@map) = 1 {
+				pos x@map*48, y@map*48
+				gcopy 1, 48, 0, 48, 48
 			}
-      if map(mx, my) = 2 {
-        pos mx*48, my*48
-        gcopy 1, 96,0, 48,48
+      if map(x@map, y@map) = 2 {
+        pos x@map*48, y@map*48
+        gcopy 1, 96, 0, 48, 48
       }
 			gsel 0
-			mx += 1
+			x@map += 1
 		loop
-		my += 1 : mx = 0
+		y@map += 1 : x@map = 0
 	loop
 	return
 return
@@ -44,7 +44,7 @@ return
 
 #deffunc chara_draw
 color 255
-x@1 = x@chara - originX
-y@1 = y@chara - originY
+x@1 = cdata(0)
+y@1 = cdata(1)
 boxf x@1, y@1, x@1 + 48, y@1 + 48
 return
