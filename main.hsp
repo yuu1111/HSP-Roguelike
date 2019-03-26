@@ -4,8 +4,10 @@
 version = " 0.001α"
 releaseday = " 20190322"
 
-x@chara = 0
-y@chara = 0
+dim cdata, 500, 245
+cdata(0) = 0
+cdata(1) = 0
+
 originX = 0
 originY = 0
 pt = 0
@@ -21,9 +23,6 @@ if (debug_flag) {
 
 screen 0, 800 , 600
 title "TestGame" + releaseday + version
-
-screen 3, 800 , 600
-title "マップチップテスト1"
 
 randomize
 map_chip
