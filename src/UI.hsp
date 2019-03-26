@@ -1,3 +1,16 @@
+#deffunc Input_Check
+await 50
+getkey Get_Space, Key_Space
+getkey Get_Return, Key_Return
+getkey Get_UP, Key_UP
+getkey Get_Down, Key_Down
+getkey Get_ESC, Key_ESC
+getkey Get_A, Key_A
+getkey Get_B, Key_B
+getkey Get_C, Key_C
+getkey Get_D, Key_D
+return
+
 #deffunc UI_draw
 
 uPX() = 100
@@ -6,12 +19,7 @@ uPY() = 100
 redraw 0
 color 255,255,255 : boxf : color 0,0,0
 
-await 50
-getkey Get_Space, Key_Space
-getkey Get_Return, Key_Return
-getkey Get_UP, Key_UP
-getkey Get_Down, Key_Down
-getkey Get_ESC, Key_ESC
+Input_Check
 
 repeat select_max + 1
 
@@ -32,124 +40,125 @@ if (Get_Down) {
     cursor++
   }
 }
+
+if (Get_Space | Get_Return) {
+  if (cursor == 1) {
+    uDecision() = 1
+  }
+  if (cursor == 2) {
+    uDecision() = 2
+  }
+  if (cursor == 3) {
+    uDecision() = 3
+  }
+  if (cursor == 4) {
+    uDecision() = 4
+  }
+  cursor = 0
+}
 return
 
 
 *Title@1
+uDecision() = -1
 select_max = 3
-sdim select,64,select_max,3
 select(0,0) = "続きから","a"
 select(0,1) = "新しく","b"
 select(0,2) = "テスト","c"
 select(0,3) = "終了","d"
 UI_draw
-if (Get_Space | Get_Return) {
-  if (cursor == 1) {
-    screen 0,800,600
-    cursor = 0
-    goto *chara_create
-  }
-  if (cursor == 2) {
-    screen 0,800,600
-    cursor = 0
-    goto *Game_Main
-  }
-  if (cursor == 3) {
-    end
-  }
+if (uDecision() == 1) {
+  goto *chara_create
 }
-if (Get_ESC) {
+if (uDecision() == 2) {
+  screen 0,800,600
+  goto *Game_Main
+}
+if (uDecision() == 3 | Get_ESC) {
   end
 }
-await 10
 redraw 1
 goto *Title@1
 
 
 *chara_create
+uDecision() = -1
 select_max = 2
-//sdim select,64,select_max,3
 select(0,0) = "男性","a"
 select(0,1) = "女性","b"
 select(0,2) = "性別不明","c"
 UI_draw
-if (Get_Space | Get_Return) {
-  if (cursor == 0) {
-    screen 0,800,600
-    sex = 0
-    cursor = 0
-    goto *chara_create2
-  }
-  if (cursor == 1) {
-    screen 0,800,600
-    sex = 1
-    cursor = 0
-    goto *chara_create2
-  }
-  if (cursor == 2) {
-    screen 0,800,600
-    sex = 2
-    cursor = 0
-    goto *chara_create2
-  }
+if (uDecision() == 0) {
+  cSex() = 0
+  goto *chara_create2
 }
-await 10
+if (uDecision() == 1) {
+  cSex() = 1
+  goto *chara_create2
+}
+if (uDecision() == 2) {
+  cSex() = 2
+  goto *chara_create2
+}
 redraw 1
 goto *chara_create
 
 *chara_create2
+uDecision() = -1
 select_max = 2
-//sdim select,64,select_max,3
 select(0,0) = "人間","a"
 select(0,1) = "エルフ","b"
 select(0,2) = "ドワーフ","c"
 UI_draw
-if (Get_Space | Get_Return) {
-  if (cursor == 0) {
-    screen 0,800,600
-    Race = 0
-    cursor = 0
-    goto *chara_create3
-  }
-  if (cursor == 1) {
-    screen 0,800,600
-    Race = 1
-    cursor = 0
-    goto *chara_create3
-  }
-  if (cursor == 2) {
-    screen 0,800,600
-    Race = 2
-    cursor = 0
-    goto *chara_create3
-  }
+if (uDecision() == 0) {
+  cRace() = 0
+  goto *chara_create3
 }
-await 10
+if (uDecision() == 1) {
+  cRace() = 1
+  goto *chara_create3
+}
+if (uDecision() == 2) {
+  cRace() = 2
+  goto *chara_create3
+}
 redraw 1
 goto *chara_create2
 
 *chara_create3
+uDecision() = -1
 select_max = 2
-//sdim select,64,select_max,3
 select(0,0) = "戦士","a"
 select(0,1) = "魔法使い","b"
 select(0,2) = "無職","c"
 UI_draw
-if (Get_Space | Get_Return) {
-  if (cursor == 0) {
-    screen 0,800,600
-    job = 0
-  }
-  if (cursor == 1) {
-    screen 0,800,600
-    job = 1
-  }
-  if (cursor == 2) {
-    screen 0,800,600
-    job = 2
-  }
+if (uDecision() == 0) {
+  cJob() = 0
+  goto *chara_create4
 }
-
-await 10
+if (uDecision() == 1) {
+  cJob() = 1
+  goto *chara_create4
+}
+if (uDecision() == 2) {
+  cJob() = 2
+  goto *chara_create4
+}
 redraw 1
 goto *chara_create3
+
+*chara_create4
+screen 0,800,600
+input1 = ""
+pos 50, 50
+input input1, 500, 22
+uDecision() = 0
+*chara_create5
+await 50
+Input_Check
+if (Get_Return | Get_Space) {
+  dialog input1
+  cName() = input1
+}
+redraw 1
+goto *chara_create5

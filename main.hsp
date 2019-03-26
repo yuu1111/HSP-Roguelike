@@ -1,3 +1,4 @@
+#include "hspinet.as"
 
 #include "src/Const.hsp"
 #include "src/Macro.hsp"
@@ -7,7 +8,8 @@ releaseday = " 20190326"
 
 dim cdata, 500, 245
 dim udata, 500, 245
-
+sdim select, 64, 4, 2
+sdim json, 64
 cX() = 0
 cY() = 0
 
@@ -21,9 +23,10 @@ if (debug_flag) {
   screen 2, 800 , 600
   title "デバッグコンソール"
 }
-
 screen 0, 800 , 600
 title "TestGame" + releaseday + version
+
+config_check
 
 randomize
 map_chip

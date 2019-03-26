@@ -1,6 +1,11 @@
 #define ctype cX cdata(0)
 #define ctype cY cdata(1)
+#define ctype cSex cdata(2)
+#define ctype cRace cdata(3)
+#define ctype cJob cdata(4)
+#define ctype cName cdata(5)
 
 
 #define ctype uPX udata(0)
 #define ctype uPY udata(1)
+#define ctype uDecision udata(2)

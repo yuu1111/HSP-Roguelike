@@ -2,7 +2,7 @@
 #const mapsizey 10
 #const debug_flag 1
 #const mapdebug_flag 1
-
+#const NULL 0
 //ƒL[‚Ì”š
 #const Key_Return 13
 #const Key_Shift 16
@@ -12,3 +12,7 @@
 #const Key_UP 38
 #const Key_Right 39
 #const Key_Down 40
+#const Key_A 65
+#const Key_B 66
+#const Key_C 67
+#const Key_D 68
