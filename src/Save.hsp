@@ -1,0 +1,9 @@
+#deffunc Data_Load
+bload "Save/cdata",cdata
+bload "Save/cname",cname
+return
+
+#deffunc Data_Save
+bsave "Save/cdata",cdata
+bsave "Save/cname",cname
+return

@@ -3,7 +3,6 @@
 #define ctype cSex cdata(2)
 #define ctype cRace cdata(3)
 #define ctype cJob cdata(4)
-#define ctype cName cdata(5)
 
 
 #define ctype uPX udata(0)

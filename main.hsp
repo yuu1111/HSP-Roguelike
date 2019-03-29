@@ -1,5 +1,3 @@
-#include "hspinet.as"
-
 #include "src/Const.hsp"
 #include "src/Macro.hsp"
 
@@ -10,9 +8,12 @@ dim cdata, 500, 245
 dim udata, 500, 245
 sdim select, 64, 4, 2
 sdim json, 64
+cname = ""
+
+Data_Load
+
 cX() = 0
 cY() = 0
-
 cursor = 0
 
 if (mapdebug_flag) {
@@ -26,11 +27,9 @@ if (debug_flag) {
 screen 0, 800 , 600
 title "TestGame" + releaseday + version
 
-config_check
-
 randomize
 map_chip
 map_create
 goto *Title@1
 
-#include "src/game_main.hsp"
+#include "src/Game_Main.hsp"

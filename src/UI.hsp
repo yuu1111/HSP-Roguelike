@@ -16,18 +16,19 @@ return
 uPX() = 100
 uPY() = 100
 
+
 redraw 0
-color 255,255,255 : boxf : color 0,0,0
+color 157, 204, 224 : boxf : color 0, 0, 0
 
 Input_Check
 
 repeat select_max + 1
 
-pos uPX(), uPY() + (cnt*20)
+pos uPX(), uPY() + (cnt * 20)
 mes select(1,cnt) + " " + select(0,cnt)
 loop
 
-pos uPX() - 20, uPY() + (cursor*20)
+pos uPX() - 20, uPY() + (cursor * 20)
 mes "Å®"
 
 if (Get_UP) {
@@ -42,6 +43,9 @@ if (Get_Down) {
 }
 
 if (Get_Space | Get_Return) {
+  if (cursor == 0) {
+    uDecision() = 0
+  }
   if (cursor == 1) {
     uDecision() = 1
   }
@@ -51,9 +55,22 @@ if (Get_Space | Get_Return) {
   if (cursor == 3) {
     uDecision() = 3
   }
-  if (cursor == 4) {
-    uDecision() = 4
-  }
+  cursor = 0
+}
+if (Get_A) {
+  uDecision() = 0
+  cursor = 0
+}
+if (Get_B) {
+  uDecision() = 1
+  cursor = 0
+}
+if (Get_C) {
+  uDecision() = 2
+  cursor = 0
+}
+if (Get_D) {
+  uDecision() = 3
   cursor = 0
 }
 return
@@ -149,16 +166,25 @@ goto *chara_create3
 
 *chara_create4
 screen 0,800,600
+redraw 0
+color 157, 204, 224 : boxf : color 0, 0, 0
 input1 = ""
 pos 50, 50
 input input1, 500, 22
 uDecision() = 0
 *chara_create5
-await 50
 Input_Check
-if (Get_Return | Get_Space) {
+if (Get_Return) {
   dialog input1
-  cName() = input1
+  cname = input1
+  Data_Save
+  goto *chara_create6
 }
 redraw 1
 goto *chara_create5
+
+*chara_create6
+
+
+
+goto *chara_create6
