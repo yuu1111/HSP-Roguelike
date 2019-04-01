@@ -16,8 +16,8 @@ Config_Check
 Data_Check
 Data_Load
 
-cX() = 0
-cY() = 0
+cX() = 1
+cY() = 1
 cursor = 0
 
 if (MAPDEBUG_FLAG) {

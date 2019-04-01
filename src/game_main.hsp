@@ -8,47 +8,87 @@
 
 #deffunc move int direction
 
+/*if key = 1 : a = cX() - 1 : b = cY()
+if key = 2 : a = cX() : b = cY() - 1
+if key = 4 : a = cX() + 1 : b = cY()
+if key = 8 : a = cX() : b = cY() + 1
+if key > 8 : a = cX() : b = cY()*/
+
+if (Get_Left == 1) {
+  a = cX() - 1
+  b = cY()
+}
+if (Get_UP == 1) {
+  a = cX()
+  b = cY() - 1
+}
+if (Get_Right == 1) {
+  a = cX() + 1
+  b = cY()
+}
+if (Get_Down == 1) {
+  a = cX()
+  b = cY() + 1
+}
+
+if (Get_Left == 1 & Get_UP == 1) {
+  a = cX() - 1
+  b = cY() - 1
+}
+if (Get_Right == 1 & Get_UP == 1) {
+  a = cX() + 1
+  b = cY() - 1
+}
+if (Get_Left == 1 & Get_Down == 1) {
+  a = cX() - 1
+  b = cY() + 1
+}
+if (Get_Right == 1 & Get_Down == 1) {
+  a = cX() + 1
+  b = cY() + 1
+}
+
+if (map(a, b) = 1) {
+  goto *Game_Main
+}
+
 if (direction == 0) {
-    cX() - 48
+  cX()--
 }
 if (direction == 1) {
-    cY() - 48
+  cY()--
 }
 if (direction == 2) {
-    cX() + 48
+  cX()++
 }
 if (direction == 3) {
-    cY() + 48
+  cY()++
 }
-  return
+return
 
 
-  *Game_Main
-  wait 10
-  map_draw
-  chara_draw
-  getkey Get_Left, Key_Left
-  getkey Get_UP, Key_UP
-  getkey Get_Right, Key_Right
-  getkey Get_Down, Key_Down
+*Game_Main
+wait 10
+map_draw
+chara_draw
+getkey Get_Left, Key_Left
+getkey Get_UP, Key_UP
+getkey Get_Right, Key_Right
+getkey Get_Down, Key_Down
 
-  if (Get_Left == 0 & Get_UP == 0 & Get_Right == 0 & Get_Down == 0) {
-    goto *Game_Main
-  }
-  if (Get_Left == 1) {
-    debug_log("ç∂")
-    move(0)
-  }
-  if (Get_UP == 1) {
-    debug_log("è„")
-    move(1)
-  }
-  if (Get_Right == 1) {
-    debug_log("âE")
-    move(2)
-  }
-  if (Get_Down == 1) {
-    debug_log("â∫")
-    move(3)
-  }
+if (Get_Left == 0 & Get_UP == 0 & Get_Right == 0 & Get_Down == 0) {
   goto *Game_Main
+}
+if (Get_Left == 1) {
+  move(0)
+}
+if (Get_UP == 1) {
+  move(1)
+}
+if (Get_Right == 1) {
+  move(2)
+}
+if (Get_Down == 1) {
+  move(3)
+}
+goto *Game_Main

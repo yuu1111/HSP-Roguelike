@@ -1,5 +1,5 @@
-#deffunc debug_log str log_mes
-if (debug_flag) {
+#deffunc Debug_Log str log_mes
+if (DEBUG_FLAG) {
   gsel 2
   mes log_mes
   gsel 0

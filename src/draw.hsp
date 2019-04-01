@@ -27,7 +27,7 @@ return
 
 #deffunc chara_draw
 color 255
-x@1 = cX()
-y@1 = cY()
-boxf x@1, y@1, x@1 + 48, y@1 + 48
+x@chara = cX() * 48
+y@chara = cY() * 48
+boxf x@chara, y@chara, x@chara + 48, y@chara + 48
 return
