@@ -1,9 +1,20 @@
 #deffunc Data_Load
 bload "Save/cdata",cdata
-bload "Save/cname",cname
+bload "Save/name",name
 return
 
 #deffunc Data_Save
 bsave "Save/cdata",cdata
-bsave "Save/cname",cname
+bsave "Save/name",name
+return
+
+#deffunc Data_Check
+exist "Save/cdata"
+if strsize = -1 {
+  bsave "Save/cdata",cdata
+}
+exist "Save/name"
+if strsize = -1 {
+  bsave "Save/name",name
+}
 return

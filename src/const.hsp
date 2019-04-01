@@ -1,7 +1,5 @@
 #const mapsizex 12
 #const mapsizey 10
-#const debug_flag 1
-#const mapdebug_flag 1
 #const NULL 0
 //ƒL[‚Ì”š
 #const Key_Return 13

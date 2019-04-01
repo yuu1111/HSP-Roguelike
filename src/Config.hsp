@@ -1,0 +1,8 @@
+#deffunc Config_Check
+exist "Config.txt"
+if strsize = -1 {
+notesel Config_txt
+noteload "Data/Config.txt"
+notesave "Config.txt"
+}
+return

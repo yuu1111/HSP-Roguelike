@@ -1,10 +1,10 @@
-#include "txt.hsp"
 #include "Draw.hsp"
 #include "UI.hsp"
 #include "Img_Load.hsp"
 #include "Map.hsp"
 #include "Debug.hsp"
 #include "Save.hsp"
+#include "Config.hsp"
 
 #deffunc move int direction
 

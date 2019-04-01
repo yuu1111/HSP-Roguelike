@@ -1,7 +1,0 @@
-#deffunc config_check
-exist "Config/Config.txt"
-if strsize = -1 {
-  notesel config_txt
-  notesave "Config/Config.txt"
-}
-return
