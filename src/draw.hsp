@@ -4,7 +4,7 @@ y@map = 0
 gsel 0
 repeat length(map)
 repeat length2(map)
-pos x@map*48, y@map*48
+pos x@map * 48, y@map * 48
 if map(x@map, y@map) = 0 {
 	gcopy 1, 0, 0, 48, 48
 }
