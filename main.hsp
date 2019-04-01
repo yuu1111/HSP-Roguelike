@@ -29,7 +29,7 @@ if (DEBUG_FLAG) {
   title "デバッグコンソール"
 }
 screen 0, 800 , 600
-title "TestGame" + releaseday + version
+title "TestGame" + version
 
 randomize
 map_chip
