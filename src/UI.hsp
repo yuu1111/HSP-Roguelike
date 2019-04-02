@@ -106,15 +106,15 @@ select(0,1) = "女性","b"
 select(0,2) = "性別不明","c"
 UI_draw
 if (uDecision() == 0) {
-  cSex() = 0
+  cSex() = MALE
   goto *chara_create2
 }
 if (uDecision() == 1) {
-  cSex() = 1
+  cSex() = FEMALE
   goto *chara_create2
 }
 if (uDecision() == 2) {
-  cSex() = 2
+  cSex() = UNKNOWN_GENDER
   goto *chara_create2
 }
 redraw 1
@@ -128,15 +128,15 @@ select(0,1) = "エルフ","b"
 select(0,2) = "ドワーフ","c"
 UI_draw
 if (uDecision() == 0) {
-  cRace() = 0
+  cRace() = HUMAN
   goto *chara_create3
 }
 if (uDecision() == 1) {
-  cRace() = 1
+  cRace() = ELF
   goto *chara_create3
 }
 if (uDecision() == 2) {
-  cRace() = 2
+  cRace() = DWARF
   goto *chara_create3
 }
 redraw 1
@@ -150,15 +150,15 @@ select(0,1) = "魔法使い","b"
 select(0,2) = "無職","c"
 UI_draw
 if (uDecision() == 0) {
-  cJob() = 0
+  cJob() = WARRIOR
   goto *chara_create4
 }
 if (uDecision() == 1) {
-  cJob() = 1
+  cJob() = WITCH
   goto *chara_create4
 }
 if (uDecision() == 2) {
-  cJob() = 2
+  cJob() = NONE_JOB
   goto *chara_create4
 }
 redraw 1

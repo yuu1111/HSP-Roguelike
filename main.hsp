@@ -1,5 +1,6 @@
 #include "src/Const.hsp"
 #include "src/Macro.hsp"
+#include "src/DB.hsp"
 
 MAPDEBUG_FLAG = 1
 DEBUG_FLAG = 1

@@ -14,3 +14,16 @@
 #const Key_B 66
 #const Key_C 67
 #const Key_D 68
+
+#const UNKNOWN_GENDER 0
+#const MALE 1
+#const FEMALE 2
+
+#const UNKNOWN_RACE 0
+#const HUMAN 1
+#const ELF 2
+#const DWARF 3
+
+#const NONE_JOB 0
+#const WARRIOR 1
+#const WITCH 2
